@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,19 +19,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RS0-0U-CnC">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMK-o4-AvM">
+                                <rect key="frame" x="20" y="20" width="560" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Mj-BW-ZgD">
+                                        <rect key="frame" x="0.0" y="0.0" width="510" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aD-vw-E7t">
+                                        <rect key="frame" x="510" y="0.0" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Zfh-Pv-wlE"/>
+                                        </constraints>
+                                        <state key="normal" title="Go"/>
+                                        <connections>
+                                            <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PaT-lb-Q0N"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7aD-vw-E7t" firstAttribute="leading" secondItem="1Mj-BW-ZgD" secondAttribute="trailing" id="ZGL-2V-S4X"/>
+                                    <constraint firstItem="1Mj-BW-ZgD" firstAttribute="leading" secondItem="GMK-o4-AvM" secondAttribute="leading" id="w5J-aT-f31"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RS0-0U-CnC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0fw-fD-62M"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RS0-0U-CnC" secondAttribute="bottom" id="8Za-85-hoQ"/>
-                            <constraint firstItem="RS0-0U-CnC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yYY-C0-yFU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GMK-o4-AvM" secondAttribute="trailing" id="FOd-ck-rZn"/>
+                            <constraint firstItem="RS0-0U-CnC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Qd5-xA-7HA"/>
+                            <constraint firstItem="GMK-o4-AvM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="TYc-ap-CmW"/>
+                            <constraint firstAttribute="trailing" secondItem="RS0-0U-CnC" secondAttribute="trailing" id="ZGN-8V-ySC"/>
+                            <constraint firstItem="RS0-0U-CnC" firstAttribute="top" secondItem="GMK-o4-AvM" secondAttribute="bottom" constant="8" id="kfh-TM-NHN"/>
+                            <constraint firstItem="GMK-o4-AvM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rgm-61-q2S"/>
                             <constraint firstAttribute="trailing" secondItem="RS0-0U-CnC" secondAttribute="trailing" id="ycb-Q2-3ON"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="address" destination="1Mj-BW-ZgD" id="kFM-qh-E1v"/>
+                        <outlet property="addressTextField" destination="1Mj-BW-ZgD" id="Pxb-VL-Sef"/>
                         <outlet property="webView" destination="RS0-0U-CnC" id="kIi-cy-Bvk"/>
                     </connections>
                 </viewController>
